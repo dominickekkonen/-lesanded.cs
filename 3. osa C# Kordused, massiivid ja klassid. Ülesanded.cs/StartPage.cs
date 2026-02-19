@@ -26,6 +26,7 @@ namespace Naidis_IKTpv25
             Console.WriteLine($"Vanuste keskmine: {analüüs.Item2}");
             Console.WriteLine($"Vanim inimene: {analüüs.Item3.Nimi}({analüüs.Item3.Nimi} aastad vana)");
             Console.WriteLine($"Noorim inimene: {analüüs.Item4.Nimi}({analüüs.Item4.Nimi} aastad vana)");
+
             /*Console.WriteLine("1. Osa Anmdetüübid");
             string text = "Tere tulemast c#-i mailmaa!";
             Console.WriteLine($"Oli loodud muutuja tekst,mis võrdub: {text}");

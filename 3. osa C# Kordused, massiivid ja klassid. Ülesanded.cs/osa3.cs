@@ -41,6 +41,14 @@
 
 
         }
+        public static Tuple<int, double, Inimene, Inimene> Statistika(List<Inimene> inimesed)
+        {
+            int summa = inimesed.Sum(i => i.Vanus);
+            double keskmine = inimesed.Average(i => i.Vanus);
+            Inimene vanim = inimesed.OrderByDescending(i => i.Vanus).First();
+            Inimene noorim = inimesed.OrderBy(i => i.Vanus).First();
+            return Tuple.Create(summa, keskmine, vanim, noorim);
+        }
 
 
         public static void ostsElevantAra()
@@ -99,7 +107,7 @@
             }
 
         }
-        //6
+
         public static void SuurimNeliarv()
         {
             Console.WriteLine("Sisesta neli arvu:");
@@ -118,7 +126,6 @@
                 }
             }
         }
-        //7
         public static int[,] GenereeriKorrutustabel(int ridadeArv, int veergudeArv)
         {
             int[,] tabel = new int[ridadeArv, veergudeArv];
@@ -133,12 +140,13 @@
             }
             return tabel;
         }
-        //8
+
         public static void ÕpilastegaMängimine(string[] nimed)
         {
-            Console.WriteLine("Uus nimi: ");
-            string nimi1 = Console.ReadLine();
-            nimed[2] = nimi1;
+
+            Console.Write("milleks:  ");
+            string nimi = Console.ReadLine();
+            nimed[2] = nimi;
             nimed[5] = "Mati";
             int i = 0;
             while (i < nimed.Length)
@@ -153,11 +161,24 @@
             {
                 Console.WriteLine($"Indeks: {j}, Nimi: {nimed[j]}");
             }
-            foreach (string nimi in nimed)
+            foreach (string nimi1 in nimed)
             {
-                Console.WriteLine(nimi.ToLower());
+                Console.WriteLine(nimi1.ToLower());
             }
+            i = 0;
+            do
+            {
+                if (nimed[i] == "Mati")
+                {
+                    Console.WriteLine("Leidsin Mati! ");
+                    break;
+                }
+                Console.WriteLine($"Tere, {nimed[i]}!");
+                i++;
+            } while (i < nimed.Length);
         }
+
+
         public static void arvudRuudud()
         {
             int[] arvud = { 2, 4, 6, 8, 10, 12 };
@@ -257,14 +278,6 @@
             Console.WriteLine("surim: " + max);
             Console.WriteLine("indeks: " + index);
 
-        }
-        public static Tuple<int, double, Inimene, Inimene> Statistika(List<Inimene> inimenesed)
-        {
-            int summa = inimenesed.Sum(i => i.Vanus);
-            double keskmine = inimenesed.Average(i => i.Vanus);
-            Inimene vanim = inimenesed.OrderByDescending(i => i.Vanus).First();
-            Inimene Noorim = inimenesed.OrderByDescending(i => i.Vanus).First();
-            return Tuple.Create(summa, keskmine, vanim, Noorim);
         }
     }
 }

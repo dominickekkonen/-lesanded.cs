@@ -7,8 +7,25 @@ namespace Naidis_IKTpv25
     {
         public static void Main(string[] args)
         {
-
             Console.OutputEncoding = Encoding.UTF8;
+            List<Inimene> inimesed = new List<Inimene>();
+            Inimene inimene1 = new Inimene("Sasha", 100);
+            inimesed.Add(inimene1);
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine($"Mis on {i + 1} nimi?: ");
+                string nimi = Console.ReadLine();
+                Console.WriteLine($"Mis on {i + 1} inimese vanus?: ");
+                int vanus = int.Parse(Console.ReadLine());
+                Inimene inimene = new Inimene(nimi, vanus);
+                inimesed.Add(inimene);
+            }
+
+            var analüüs = osa3.Statistika(inimesed);
+            Console.WriteLine($"Vanuste arv: {analüüs.Item1}");
+            Console.WriteLine($"Vanuste keskmine: {analüüs.Item2}");
+            Console.WriteLine($"Vanim inimene: {analüüs.Item3.Nimi}({analüüs.Item3.Nimi} aastad vana)");
+            Console.WriteLine($"Noorim inimene: {analüüs.Item4.Nimi}({analüüs.Item4.Nimi} aastad vana)");
             /*Console.WriteLine("1. Osa Anmdetüübid");
             string text = "Tere tulemast c#-i mailmaa!";
             Console.WriteLine($"Oli loodud muutuja tekst,mis võrdub: {text}");
@@ -220,32 +237,7 @@ namespace Naidis_IKTpv25
                 {
                     Console.WriteLine("vali arv 1-11: ");
                 }
-
             }
-
-
-        }
-        public static void Main(string[] args)
-        {
-            Console.OutputEncoding = Encoding.UTF8;
-            List<Inimene> inimesed = new List<Inimene>();
-            Inimene inimene1 = new Inimene("Sasha", 100);
-            inimesed.Add(inimene1);
-            for (int i = 0; i < 5; i++)
-            {
-                Console.WriteLine($"Mis on {i + 1} nimi?: ");
-                string nimi = Console.ReadLine();
-                Console.WriteLine($"Mis on {i + 1} inimese vanus?: ");
-                int vanus = int.Parse(Console.ReadLine());
-                Inimene inimene = new Inimene(nimi, vanus);
-                inimesed.Add(inimene);
-            }
-
-            var analüüs = osa3.Statistika(inimesed);
-            Console.WriteLine($"Vanuste arv: {analüüs.Item1}");
-            Console.WriteLine($"Vanuste keskmine: {analüüs.Item2}");
-            Console.WriteLine($"Vanim inimene: {analüüs.Item3.Nimi}({analüüs.Item3.Nimi} aastad vana)");
-            Console.WriteLine($"Noorim inimene: {analüüs.Item4.Nimi}({analüüs.Item4.Nimi} aastad vana)");
         }
         public static int[] GenereeriRuudud(int min, int max)
         {
@@ -260,6 +252,7 @@ namespace Naidis_IKTpv25
                 int ruut = i + i;
                 masiiv[i] = ruut;
             }
+            return masiiv;
 
         }
         public static void arvuAnaluus()

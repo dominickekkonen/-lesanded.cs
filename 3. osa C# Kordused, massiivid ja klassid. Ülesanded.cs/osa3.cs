@@ -141,7 +141,7 @@
             nimed[2] = nimi1;
             nimed[5] = "Mati";
             int i = 0;
-            while(i< nimed.Length)
+            while (i < nimed.Length)
             {
                 if (nimed[i].StartsWith("A"))
                 {
@@ -149,11 +149,11 @@
                 }
                 i++;
             }
-            for(int j = 0; j < nimed.Length; j++)
+            for (int j = 0; j < nimed.Length; j++)
             {
                 Console.WriteLine($"Indeks: {j}, Nimi: {nimed[j]}");
             }
-            foreach(string nimi in nimed)
+            foreach (string nimi in nimed)
             {
                 Console.WriteLine(nimi.ToLower());
             }
